@@ -67,7 +67,7 @@ static ssize_t proc_read(struct file *file, char __user * ubuf, size_t count, lo
   	sarr[written] = 0;
 
     len = strlen(sarr);
-    if (printed < 0)  return -ENOMEM;
+    if (written < 0)  return -ENOMEM;
   	if (*ppos > 0 || count < len) return 0;
   	if (copy_to_user(ubuf, sarr, len) != 0) return -EFAULT;
   	*ppos = len;
